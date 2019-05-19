@@ -55,7 +55,7 @@ pub struct UTerm;
 impl UTerm {
     /// Instantiates a singleton representing this unsigned integer.
     #[inline]
-    pub fn new() -> UTerm {
+    pub const fn new() -> UTerm {
         UTerm
     }
 }
@@ -151,10 +151,10 @@ pub struct UInt<U, B> {
     _marker: PhantomData<(U, B)>,
 }
 
-impl<U: Unsigned, B: Bit> UInt<U, B> {
+impl<U, B> UInt<U, B> {
     /// Instantiates a singleton representing this unsigned integer.
     #[inline]
-    pub fn new() -> UInt<U, B> {
+    pub const fn new() -> UInt<U, B> {
         UInt {
             _marker: PhantomData,
         }

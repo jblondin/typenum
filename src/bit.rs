@@ -22,7 +22,7 @@ pub struct B0;
 impl B0 {
     /// Instantiates a singleton representing this bit.
     #[inline]
-    pub fn new() -> B0 {
+    pub const fn new() -> B0 {
         B0
     }
 }
@@ -34,7 +34,7 @@ pub struct B1;
 impl B1 {
     /// Instantiates a singleton representing this bit.
     #[inline]
-    pub fn new() -> B1 {
+    pub const fn new() -> B1 {
         B1
     }
 }

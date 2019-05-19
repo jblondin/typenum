@@ -40,30 +40,30 @@ pub use marker_traits::Integer;
 
 /// Type-level signed integers with positive sign.
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
-pub struct PInt<U: Unsigned + NonZero> {
+pub struct PInt<U> {
     _marker: PhantomData<U>,
 }
 
 /// Type-level signed integers with negative sign.
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
-pub struct NInt<U: Unsigned + NonZero> {
+pub struct NInt<U> {
     _marker: PhantomData<U>,
 }
 
-impl<U: Unsigned + NonZero> PInt<U> {
+impl<U> PInt<U> {
     /// Instantiates a singleton representing this strictly positive integer.
     #[inline]
-    pub fn new() -> PInt<U> {
+    pub const fn new() -> PInt<U> {
         PInt {
             _marker: PhantomData,
         }
     }
 }
 
-impl<U: Unsigned + NonZero> NInt<U> {
+impl<U> NInt<U> {
     /// Instantiates a singleton representing this strictly negative integer.
     #[inline]
-    pub fn new() -> NInt<U> {
+    pub const fn new() -> NInt<U> {
         NInt {
             _marker: PhantomData,
         }
@@ -77,7 +77,7 @@ pub struct Z0;
 impl Z0 {
     /// Instantiates a singleton representing the integer 0.
     #[inline]
-    pub fn new() -> Z0 {
+    pub const fn new() -> Z0 {
         Z0
     }
 }
